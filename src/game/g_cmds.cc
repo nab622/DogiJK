@@ -272,9 +272,9 @@ void G_Give( gentity_t *ent, const char *name, const char *args, int argc )
 	if ( give_all || !Q_stricmp( name, "force" ) )
 	{
 		if ( argc == 3 )
-			ent->client->ps.fd.forcePower = Com_Clampi( 0, ent->client->ps.fd.forcePowerMax, atoi( args ) );
+            ent->client->ps.fd.forcePower = Com_Clampi( 0, getMaxForceEnergy( ent->client->ps.fd.forceLevel ), atoi( args ) );
 		else
-			ent->client->ps.fd.forcePower = ent->client->ps.fd.forcePowerMax;
+            ent->client->ps.fd.forcePower = getMaxForceEnergy( ent->client->ps.fd.forceLevel );
 
 		if ( !give_all )
 			return;
@@ -4201,7 +4201,7 @@ command_t commands[] = {
 	{ "notarget",			Cmd_Notarget_f,				CMD_CHEAT|CMD_ALIVE|CMD_NOINTERMISSION },
 	{ "npc",				Cmd_NPC_f,					CMD_CHEAT|CMD_ALIVE },
 	{ "prop",				Cmd_Prop_f,					CMD_CHEAT|CMD_ALIVE },
-	{ "q",					Cmd_Q_f,					CMD_ALIVE|CMD_NOINTERMISSION },
+    { "q",					Cmd_Q_f,					0 },
 	{ "qui",				Cmd_Qui_f,					CMD_ALIVE|CMD_NOINTERMISSION },
 	{ "say",				Cmd_Say_f,					0 },
 	{ "say_team",			Cmd_SayTeam_f,				0 },

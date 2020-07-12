@@ -388,7 +388,7 @@ typedef enum
 	FP_LIGHTNING,//hold/duration
 	FP_RAGE,//duration
 	FP_PROTECT,
-	FP_ABSORB,
+        FP_ABSORB,
 	FP_TEAM_HEAL,
 	FP_TEAM_FORCE,
 	FP_DRAIN,
@@ -404,7 +404,9 @@ typedef enum forcePowerLevels_e {
 	FORCE_LEVEL_1,
 	FORCE_LEVEL_2,
 	FORCE_LEVEL_3,
-	NUM_FORCE_POWER_LEVELS
+        FORCE_LEVEL_4,
+        FORCE_LEVEL_5,
+        NUM_FORCE_POWER_LEVELS
 } forcePowerLevels_t;
 
 #define	FORCE_LEVEL_4 (FORCE_LEVEL_3+1)
@@ -996,8 +998,8 @@ typedef struct forcedata_s {
 	int			forceButtonNeedRelease;
 	int			forcePowerDuration[NUM_FORCE_POWERS];
 	int			forcePower;
-	int			forcePowerMax;
-	int			forcePowerRegenDebounceTime;
+        int			forceLevel;                          //This is the force level this player/NPC has (1-5)
+        int			forcePowerRegenDebounceTime;
 	int			forcePowerLevel[NUM_FORCE_POWERS];		//so we know the max forceJump power you have
 	int			forcePowerBaseLevel[NUM_FORCE_POWERS];
 	int			forceUsingAdded;
@@ -1419,7 +1421,7 @@ typedef enum
 	GENCMD_FORCE_DISTRACT,
 	GENCMD_FORCE_RAGE,
 	GENCMD_FORCE_PROTECT,
-	GENCMD_FORCE_ABSORB,
+        GENCMD_FORCE_ABSORB,
 	GENCMD_FORCE_HEALOTHER,
 	GENCMD_FORCE_FORCEPOWEROTHER,
 	GENCMD_FORCE_SEEING,

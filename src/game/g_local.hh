@@ -1436,6 +1436,7 @@ void G_LoadArenas( void );
 
 // w_force.cc / w_saber.cc
 gentity_t *G_PreDefSound(vec3_t org, int pdSound);
+int getMaxForceEnergy( int forceLevel );
 qboolean HasSetSaberOnly(void);
 void WP_ForcePowerStop( gentity_t *self, forcePowers_t forcePower );
 void WP_SaberPositionUpdate( gentity_t *self, usercmd_t *ucmd );

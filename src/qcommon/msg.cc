@@ -1289,7 +1289,7 @@ netField_t	playerStateFields[] =
 { PSF(torsoAnim), 16 },			// Maximum number of animation sequences is 2048.  Top bit is reserved for the togglebit
 { PSF(groundEntityNum), GENTITYNUM_BITS },
 { PSF(eFlags), 32 },
-{ PSF(fd.forcePower), 8 },
+{ PSF(fd.forcePower), 10 },
 { PSF(eventSequence), 16 },
 { PSF(torsoTimer), 16 },
 { PSF(legsTimer), 16 },

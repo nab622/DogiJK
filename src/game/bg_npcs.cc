@@ -2517,19 +2517,27 @@ qboolean NPC_ParseParmsActual( istring const & NPCNameIn, gentity_t *NPC, istrin
 			continue;
 		}
 
-		//max force power
-		if ( !Q_stricmp( token, "forcePowerMax" ) )
-		{
-			if ( COM_ParseInt( &p, &n ) )
-			{
-				SkipRestOfLine( &p );
-				continue;
-			}
-			NPC->client->ps.fd.forcePowerMax = n;
-			continue;
-		}
+        //max force power
+        if ( !Q_stricmp( token, "forcePowerMax" ) )
+        {
+            // This is no longer used. Left here for error suppression
+            SkipRestOfLine( &p );
+            continue;
+        }
 
-		//force regen rate - default is 100ms
+        //max force level
+        if ( !Q_stricmp( token, "forceLevel" ) )
+        {
+            if ( COM_ParseInt( &p, &n ) )
+            {
+                SkipRestOfLine( &p );
+                continue;
+            }
+            NPC->client->ps.fd.forceLevel = n;
+            continue;
+        }
+
+        //force regen rate - default is 100ms
 		if ( !Q_stricmp( token, "forceRegenRate" ) )
 		{
 			if ( COM_ParseInt( &p, &n ) )

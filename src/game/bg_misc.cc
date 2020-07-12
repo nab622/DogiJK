@@ -1705,22 +1705,22 @@ qboolean BG_CanUseFPNow(int gametype, playerState_t *ps, int time, forcePowers_t
 		return qfalse;
 	}
 
-	if ( ps->forceRestricted || ps->trueNonJedi )
+    if ( ps->forceRestricted || ps->trueNonJedi )
 	{
 		return qfalse;
 	}
 
-	if (ps->weapon == WP_EMPLACED_GUN)
+    if (ps->weapon == WP_EMPLACED_GUN)
 	{ //can't use any of your powers while on an emplaced weapon
 		return qfalse;
 	}
 
-	if (ps->m_iVehicleNum)
+    if (ps->m_iVehicleNum)
 	{ //can't use powers while riding a vehicle (this may change, I don't know)
 		return qfalse;
 	}
 
-	if (ps->duelInProgress)
+    if (ps->duelInProgress)
 	{
 		if (power != FP_SABER_OFFENSE && power != FP_SABER_DEFENSE && /*power != FP_SABERTHROW &&*/
 			power != FP_LEVITATION)
@@ -1732,7 +1732,7 @@ qboolean BG_CanUseFPNow(int gametype, playerState_t *ps, int time, forcePowers_t
 		}
 	}
 
-	if (ps->saberLockFrame || ps->saberLockTime > time)
+    if (ps->saberLockFrame || ps->saberLockTime > time)
 	{
 		if (power != FP_PUSH)
 		{
@@ -1740,12 +1740,12 @@ qboolean BG_CanUseFPNow(int gametype, playerState_t *ps, int time, forcePowers_t
 		}
 	}
 
-	if (ps->fallingToDeath)
+    if (ps->fallingToDeath)
 	{
 		return qfalse;
 	}
 
-	if ((ps->brokenLimbs & (1 << BROKENLIMB_RARM)) ||
+    if ((ps->brokenLimbs & (1 << BROKENLIMB_RARM)) ||
 		(ps->brokenLimbs & (1 << BROKENLIMB_LARM)))
 	{ //powers we can't use with a broken arm
         switch (power)
@@ -1761,7 +1761,7 @@ qboolean BG_CanUseFPNow(int gametype, playerState_t *ps, int time, forcePowers_t
 		}
 	}
 
-	return qtrue;
+    return qtrue;
 }
 
 /*
