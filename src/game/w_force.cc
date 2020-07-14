@@ -881,9 +881,9 @@ void WP_ForcePowerRegenerate( gentity_t *self, int overrideAmt )
     int overcharge = maxEnergy * g_forcePowerOverchargeMultiplier.value;
 
     if ( self->client->ps.fd.forcePower >= maxEnergy )
-    { //If we're above the maximum energy, do nothing.
+    { //If we're at or above the maximum energy, do not recharge
         if ( self->client->ps.fd.forcePower > overcharge )
-        { //Hard cutoff at the overcharge limit
+        { //Make sure we haven't exceeded the overcharge limit before leaving
             self->client->ps.fd.forcePower = overcharge;
         }
         return;

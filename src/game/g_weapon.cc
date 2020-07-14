@@ -491,7 +491,7 @@ void WP_FireTurboLaserMissile( gentity_t *ent, vec3_t start, vec3_t dir )
 void WP_FireEmplacedMissile( gentity_t *ent, vec3_t start, vec3_t dir, qboolean altFire, gentity_t *ignore )
 //---------------------------------------------------------
 {
-	int velocity	= BLASTER_VELOCITY;
+    int velocity	= 99999;
 	int	damage		= BLASTER_DAMAGE;
 	gentity_t *missile;
 

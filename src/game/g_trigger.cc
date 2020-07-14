@@ -1340,6 +1340,11 @@ void hurt_use( gentity_t *self, gentity_t *other, gentity_t *activator ) {
 void hurt_touch( gentity_t *self, gentity_t *other, trace_t *trace ) {
 	int		dflags;
 	
+    if ( self->flags & FL_INACTIVE )
+    {//set by target_deactivate
+        return;
+    }
+
     if(other->flags & FL_GODMODE) {
         other->client->ps.fallingToDeath = 0;
 		other->client->ps.eFlags &= ~EF_RAG;
@@ -1360,11 +1365,6 @@ void hurt_touch( gentity_t *self, gentity_t *other, trace_t *trace ) {
 		{ //vehicle owned by team don't hurt
 			return;
 		}
-	}
-
-	if ( self->flags & FL_INACTIVE )
-	{//set by target_deactivate
-		return;
 	}
 
 	if ( !other->takedamage ) {
@@ -1427,9 +1427,9 @@ void hurt_touch( gentity_t *self, gentity_t *other, trace_t *trace ) {
 
 		if (other->NPC)
 		{ //kill it now
-			vec3_t vDir;
+            vec3_t vDir;
 
-			VectorSet(vDir, 0, 1, 0);
+            VectorSet(vDir, 0, 1, 0);
 			G_Damage(other, other, other, vDir, other->client->ps.origin, Q3_INFINITE, 0, MOD_FALLING);
 		}
 		else

@@ -2517,6 +2517,22 @@ qboolean NPC_ParseParmsActual( istring const & NPCNameIn, gentity_t *NPC, istrin
 			continue;
 		}
 
+        //SurfOn
+        if ( !Q_stricmp( token, "surfOn" ) )
+        {
+            // No idea what this is. Here for error suppression
+            SkipRestOfLine( &p );
+            continue;
+        }
+
+        //SurfOff
+        if ( !Q_stricmp( token, "surfOff" ) )
+        {
+            // No idea what this is. Here for error suppression
+            SkipRestOfLine( &p );
+            continue;
+        }
+
         //max force power
         if ( !Q_stricmp( token, "forcePowerMax" ) )
         {
