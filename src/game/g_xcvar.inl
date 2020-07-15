@@ -110,6 +110,7 @@ XCVAR_DEF( g_gravity,                       "800",			NULL,				CVAR_NONE,								
 XCVAR_DEF( g_inactivity,                    "0",			NULL,				CVAR_NONE,										qtrue )
 XCVAR_DEF( g_jediVmerc,                     "0",			NULL,				CVAR_SERVERINFO|CVAR_LATCH|CVAR_ARCHIVE,		qtrue )
 XCVAR_DEF( g_knockback,                     "1000",			NULL,				CVAR_NONE,										qtrue )
+XCVAR_DEF( g_levelStartTime,                "0",			NULL,				CVAR_ROM,										qfalse )
 XCVAR_DEF( g_locationBasedDamage,           "1",			NULL,				CVAR_NONE,										qtrue )
 XCVAR_DEF( g_log,                           "games.log",	NULL,				CVAR_ARCHIVE,									qfalse )
 XCVAR_DEF( g_logClientInfo,                 "0",			NULL,				CVAR_ARCHIVE,									qtrue )

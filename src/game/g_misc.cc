@@ -2412,7 +2412,7 @@ void fx_runner_use( gentity_t *self, gentity_t *other, gentity_t *activator )
 		if ( self->nextthink == -1 )
 		{
 			// NOTE: we fire the effect immediately on use, the fx_runner_think func will set
-			//	up the nextthink time.
+            //	up the next think time.
 			fx_runner_think( self );
 
 			if ( self->soundSet && self->soundSet[0] )

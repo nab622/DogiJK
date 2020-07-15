@@ -676,7 +676,9 @@ static int SV_RateMsec( client_t *client, int messageSize ) {
 		}
 	}
 
-	rateMsec = ( messageSize + HEADER_RATE_BYTES ) * 1000 / ((int) (rate * com_timescale->value));
+    rateMsec = ( messageSize + HEADER_RATE_BYTES ) * 1000 / ((int) (rate));
+    // Original code, kept here as a test
+    // rateMsec = ( messageSize + HEADER_RATE_BYTES ) * 1000 / ((int) (rate * com_timescale->value));
 
 	return rateMsec;
 }
